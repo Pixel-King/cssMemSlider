@@ -5,6 +5,8 @@
  .slider {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
      width: 65em;
      max-width: 100%;
      text-align: center;
@@ -25,7 +27,7 @@
   .slides {
     background: #fff;
     position: relative;
-    margin: 0 0 2em 0;
+    margin: 1em 0;
     z-index: 1;
     width: 100%;
     overflow: hidden;
@@ -60,7 +62,8 @@
     margin-left: -300%;
  }
 .text-wrapper{
-   width: 75%;
+   width: 70%;
+   margin: 1em 0;
 }
 .text-wrapper .tm1{
    opacity: 0;
@@ -84,19 +87,54 @@
    transition: all .8s ease;
 }
 .controll{
-   max-height: .5em;
+    width: 30%;
+    margin: 1em 0;  
 }
  .controll label {
     display: inline-block;
-    width: .5em;
-    height: .5em;
-    border: .15em solid rgb(37, 153, 248);
+    width: 1em;
+    height: 1em;
+    background: rgb(37, 153, 248, 0);
+    border-radius:100%; 
+    padding: 0.5em;
+ }
+ .controll .ctrl{
+    display: inline-block;
+    width: .8em;
+    height: .8em;
     background: rgb(37, 153, 248);
-    border-radius:100%;
- 
-    margin: 1em;
+    border-radius:100%; 
  }
  .controll label:hover{
-   border: .15em solid #eee;
-   background: #eee;
+    transform: scale(1.2);
  }
+ #sl1:checked ~ .controll label:nth-child(1) .ctrl,
+ #sl2:checked ~ .controll label:nth-child(2) .ctrl,
+ #sl3:checked ~ .controll label:nth-child(3) .ctrl,
+ #sl4:checked ~ .controll label:nth-child(4) .ctrl {
+    background: rgba(255, 0, 0);
+    border-radius:100%;
+ }
+ #sl2:checked ~ .controll .ctrl label:nth-child(2):hover,
+ #sl1:checked ~ .controll .ctrl label:nth-child(1):hover,
+ #sl3:checked ~ .controll .ctrl label:nth-child(3):hover,
+ #sl4:checked ~ .controll .ctrl label:nth-child(4):hover {
+    transform: scale(1.2);
+    border-radius:100%;
+ }
+#sl1:checked ~ .text-wrapper div:nth-child(1),
+#sl2:checked ~ .text-wrapper div:nth-child(2),
+#sl3:checked ~ .text-wrapper div:nth-child(3),
+#sl4:checked ~ .text-wrapper div:nth-child(4){
+   opacity: 1;
+}
+
+@media screen and (max-width: 768px){
+    .text-wrapper{
+        width: 100%;
+        order: 1;
+    }
+    .controll{
+        width: 100%;
+    }   
+}
