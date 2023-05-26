@@ -1,0 +1,140 @@
+@font-face {
+    font-family: Amble; 
+    src: url(../Shrift/Amble-Bold.ttf);
+ }
+ .slider {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+     width: 65em;
+     max-width: 100%;
+     text-align: center;
+  }
+ .middle{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+  }
+  .slider input[type=radio] {
+     display: none;
+  }
+  .slider label {
+     cursor:pointer;
+     text-decoration: none;
+ }
+  .slides {
+    background: #fff;
+    position: relative;
+    margin: 1em 0;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+  }
+  .slides .slides-wrapper {
+    transition: all .8s ease;
+    width: 400%;
+    height: 30em;
+ }
+ .slides .slide {
+    width: 25%;
+    float:left;
+    display: flex;
+    height: 100%;
+    color: #fff;
+}
+.slides img{
+    height: 100%;
+    width: 100%;
+    border-radius: 1em;
+}
+#sl1:hover ~ .slides .slides-wrapper {
+    margin-left: 0;
+ }
+ #sl2:hover ~ .slides .slides-wrapper {
+    margin-left: -100%;
+ }
+ #sl3:hover ~ .slides .slides-wrapper {
+    margin-left: -200%;
+ }
+ #sl4:hover ~ .slides .slides-wrapper {
+    margin-left: -300%;
+ }
+.text-wrapper{
+   width: 70%;
+   margin: 1em 0;
+}
+.text-wrapper .tm1{
+   opacity: 0;
+}
+.text-wrapper .tm2{
+   margin: -1.2em 0 0 0;
+   opacity: 0;
+}
+.text-wrapper .tm3{
+   margin: -1.2em 0 0 0;
+   opacity: 0;
+}
+.text-wrapper .tm4{
+   margin: -1.23em 0 0 0;
+   opacity: 0;
+}
+.text-mem{
+   font-family: Amble;
+   font-size: 1.2rem;
+   letter-spacing: .3em;
+   transition: all .8s ease;
+}
+.controll{
+    width: 30%;
+    margin: 1em 0;  
+}
+ .controll label {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: rgb(37, 153, 248, 0);
+    border-radius:100%; 
+    padding: 0.5em;
+ }
+ .controll .ctrl{
+    display: inline-block;
+    width: .8em;
+    height: .8em;
+    background: rgb(37, 153, 248);
+    border-radius:100%; 
+ }
+ .controll label:hover{
+    transform: scale(1.2);
+ }
+ #sl1:checked ~ .controll label:nth-child(1) .ctrl,
+ #sl2:checked ~ .controll label:nth-child(2) .ctrl,
+ #sl3:checked ~ .controll label:nth-child(3) .ctrl,
+ #sl4:checked ~ .controll label:nth-child(4) .ctrl {
+    background: rgba(255, 0, 0);
+    border-radius:100%;
+ }
+ #sl2:checked ~ .controll .ctrl label:nth-child(2):hover,
+ #sl1:checked ~ .controll .ctrl label:nth-child(1):hover,
+ #sl3:checked ~ .controll .ctrl label:nth-child(3):hover,
+ #sl4:checked ~ .controll .ctrl label:nth-child(4):hover {
+    transform: scale(1.2);
+    border-radius:100%;
+ }
+#sl1:checked ~ .text-wrapper div:nth-child(1),
+#sl2:checked ~ .text-wrapper div:nth-child(2),
+#sl3:checked ~ .text-wrapper div:nth-child(3),
+#sl4:checked ~ .text-wrapper div:nth-child(4){
+   opacity: 1;
+}
+
+@media screen and (max-width: 768px){
+    .text-wrapper{
+        width: 100%;
+        order: 1;
+    }
+    .controll{
+        width: 100%;
+    }   
+}
